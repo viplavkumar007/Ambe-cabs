@@ -5,7 +5,8 @@ import { brand, contactInfo } from '../data/siteContent'
 
 const SERVICES = [
   'Airport Transfer', 'Udaipur Sightseeing', 'Local City Transfer',
-  'Outstation Trip', 'Corporate Travel', 'Wedding & Events', 'Other'
+  'Outstation Trip', 'Corporate Travel', 'Wedding & Events', 'Sedan Cab Enquiry',
+  'Innova Enquiry', 'Urbania / Mini Bus Enquiry', 'Volvo / AC Bus Enquiry', 'Other'
 ]
 
 export default function ContactForm({ onToast }) {

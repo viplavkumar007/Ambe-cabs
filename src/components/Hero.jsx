@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
-import { Phone, MessageCircle, Star, ArrowRight, ChevronDown } from 'lucide-react'
+import { Phone, MessageCircle, Star, ChevronDown } from 'lucide-react'
 import { brand, hero } from '../data/siteContent'
+import udaipurCoverImage from '../assets/udaipur-cover.jpg'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -12,14 +13,16 @@ const fadeUp = {
 }
 
 export default function Hero() {
+  const [headlinePrefix, headlineSuffix = ''] = hero.headline.split('Trusted')
+
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden" aria-label="Hero">
 
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=1600&q=85"
-          alt="Udaipur Lake Palace"
+          src={udaipurCoverImage}
+          alt="Udaipur cityscape with City Palace"
           className="w-full h-full object-cover object-center"
           loading="eager"
         />
@@ -57,9 +60,9 @@ export default function Hero() {
             variants={fadeUp} initial="hidden" animate="show" custom={1}
             className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.05] mb-4"
           >
-            Udaipur's Most{' '}
+            {headlinePrefix}
             <span className="gold-shimmer">Trusted</span>
-            {' '}Cab Service
+            {headlineSuffix}
           </motion.h1>
 
           {/* Tagline */}

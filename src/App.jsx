@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './sections/Services'
+import CarsEnquiry from './sections/CarsEnquiry'
 import About from './sections/About'
 import Testimonials from './sections/Testimonials'
 import FAQ from './sections/FAQ'
@@ -24,6 +25,7 @@ export default function App() {
       <main>
         <Hero />
         <Services />
+        <CarsEnquiry />
         <About />
         <Testimonials />
         <CTAStrip />
