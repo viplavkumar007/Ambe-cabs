@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Phone, Menu, X } from 'lucide-react'
-import { brand, footer } from '../data/siteContent'
+import { brand } from '../data/siteContent'
+import logoImage from '../assets/ambe-cabs-logo.png'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -31,6 +32,7 @@ export default function Navbar() {
         }
       }
     }
+
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -51,33 +53,42 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-navy-100/50'
+            ? 'border-b border-navy-100/50 bg-white/95 shadow-sm backdrop-blur-md'
             : 'bg-transparent'
         }`}
       >
         <div className="section-container">
-          <div className="flex items-center justify-between h-16 lg:h-20">
-            {/* Logo */}
-            <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-               className="flex items-center gap-3 group">
-              <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-sm overflow-hidden border border-gold-500/30 flex-shrink-0">
-                {/* Logo placeholder — replace with actual logo img */}
-                <div className="w-full h-full bg-navy-700 flex items-center justify-center">
-                  <span className="text-gold-500 font-display font-bold text-lg">AC</span>
-                </div>
+          <div className="flex h-16 items-center justify-between lg:h-20">
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault()
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }}
+              className="group flex items-center gap-3"
+            >
+              <div className="flex w-[9.75rem] items-center justify-center sm:w-[11rem] lg:w-[13rem]">
+                <img
+                  src={logoImage}
+                  alt="Ambe Cabs"
+                  className="h-auto w-full object-contain drop-shadow-[0_8px_24px_rgba(10,16,25,0.18)] transition-transform duration-300 group-hover:scale-[1.02]"
+                />
               </div>
               <div className="hidden sm:block">
-                <div className="font-display font-bold text-lg text-navy-700 leading-none group-hover:text-gold-500 transition-colors">
-                  Ambe Cabs
+                <div className={`font-display text-lg font-semibold leading-none tracking-[-0.02em] transition-colors group-hover:text-gold-500 ${
+                  scrolled ? 'text-navy-700' : 'text-white'
+                }`}>
+                  {brand.name}
                 </div>
-                <div className="text-[10px] font-mono tracking-widest text-navy-400 uppercase mt-0.5">
-                  Udaipur · Rajasthan
+                <div className={`mt-0.5 text-[10px] font-mono uppercase tracking-widest ${
+                  scrolled ? 'text-navy-400' : 'text-white/75'
+                }`}>
+                  Udaipur | Rajasthan
                 </div>
               </div>
             </a>
 
-            {/* Desktop Nav */}
-            <div className="hidden lg:flex items-center gap-1">
+            <div className="hidden items-center gap-1 lg:flex">
               {navLinks.map((link) => {
                 const id = link.href.replace('#', '')
                 const isActive = activeSection === id
@@ -86,39 +97,50 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={(e) => handleNav(e, link.href)}
-                    className={`relative px-4 py-2 text-sm font-medium font-body transition-colors duration-200 group ${
-                      isActive ? 'text-gold-500' : 'text-navy-600 hover:text-gold-500'
+                    className={`group relative px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+                      isActive
+                        ? 'text-gold-500'
+                        : scrolled
+                          ? 'text-navy-600 hover:text-gold-500'
+                          : 'text-white hover:text-gold-300'
                     }`}
                   >
                     {link.label}
-                    <span className={`absolute bottom-0 left-4 right-4 h-px bg-gold-500 origin-left transition-transform duration-300 ${
-                      isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-                    }`} />
+                    <span
+                      className={`absolute bottom-0 left-4 right-4 h-px origin-left bg-gold-500 transition-transform duration-300 ${
+                        isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                      }`}
+                    />
                   </a>
                 )
               })}
             </div>
 
-            {/* CTA */}
-            <div className="hidden lg:flex items-center gap-3">
-              <a href={`tel:${brand.phone}`}
-                 className="flex items-center gap-2 text-sm font-medium text-navy-600 hover:text-gold-500 transition-colors">
+            <div className="hidden items-center gap-3 lg:flex">
+              <a
+                href={`tel:${brand.phone}`}
+                className={`flex items-center gap-2 text-sm font-medium transition-colors hover:text-gold-500 ${
+                  scrolled ? 'text-navy-600' : 'text-white'
+                }`}
+              >
                 <Phone size={15} />
                 <span className="font-mono">{brand.phoneDisplay}</span>
               </a>
               <a
                 href={`https://wa.me/${brand.whatsapp}?text=Hello! I'd like to book a cab with Ambe Cabs.`}
-                target="_blank" rel="noopener noreferrer"
-                className="btn-primary text-sm py-2.5 px-5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary px-5 py-2.5 text-sm"
               >
                 Book Now
               </a>
             </div>
 
-            {/* Mobile Toggle */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 text-navy-700 hover:text-gold-500 transition-colors focus:outline-none focus:ring-2 focus:ring-gold-500 rounded-sm"
+              className={`rounded-sm p-2 transition-colors hover:text-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500 lg:hidden ${
+                scrolled ? 'text-navy-700' : 'text-white'
+              }`}
               aria-label="Toggle menu"
             >
               {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -127,7 +149,6 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -135,27 +156,28 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-16 left-0 right-0 z-40 bg-white border-b border-navy-100 shadow-lg"
+            className="fixed left-0 right-0 top-16 z-40 border-b border-navy-100 bg-white shadow-lg"
           >
-            <div className="section-container py-6 flex flex-col gap-1">
+            <div className="section-container flex flex-col gap-1 py-6">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNav(e, link.href)}
-                  className="py-3 px-4 text-navy-700 font-medium hover:text-gold-500 hover:bg-cream rounded-sm transition-colors"
+                  className="rounded-sm px-4 py-3 font-medium text-navy-700 transition-colors hover:bg-cream hover:text-gold-500"
                 >
                   {link.label}
                 </a>
               ))}
-              <div className="mt-4 pt-4 border-t border-navy-100 flex flex-col gap-3">
-                <a href={`tel:${brand.phone}`} className="btn-secondary text-center justify-center">
+              <div className="mt-4 flex flex-col gap-3 border-t border-navy-100 pt-4">
+                <a href={`tel:${brand.phone}`} className="btn-secondary justify-center text-center">
                   <Phone size={16} /> {brand.phoneDisplay}
                 </a>
                 <a
                   href={`https://wa.me/${brand.whatsapp}`}
-                  target="_blank" rel="noopener noreferrer"
-                  className="btn-whatsapp text-center justify-center"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-whatsapp justify-center text-center"
                 >
                   Book on WhatsApp
                 </a>

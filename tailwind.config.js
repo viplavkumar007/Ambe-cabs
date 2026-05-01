@@ -32,9 +32,9 @@ export default {
         cream: '#e8edf2',
       },
       fontFamily: {
-        display: ['Playfair Display', 'Georgia', 'serif'],
-        body: ['DM Sans', 'sans-serif'],
-        mono: ['DM Mono', 'monospace'],
+        display: ['Fraunces', 'Manrope', 'serif'],
+        body: ['Manrope', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
       },
       animation: {
         'pulse-gold': 'pulseGold 3s ease-in-out infinite',
