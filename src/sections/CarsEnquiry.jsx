@@ -62,11 +62,7 @@ export default function CarsEnquiry() {
                     src={car.image}
                     alt={car.name}
                     loading="lazy"
-                    className={`h-full w-full transition-transform duration-700 group-hover:scale-[1.04] ${
-                      car.name === 'Force Urbania' || car.name === 'Mini Buses'
-                        ? 'object-contain p-4'
-                        : 'object-cover'
-                    }`}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#09131f]/90 via-[#09131f]/18 to-white/5" />

@@ -3,6 +3,8 @@
 
 import corporateTravelImage from '../assets/corporate-travel.jpeg'
 import hawaMahalImage from '../assets/hawa-mahal.jpg'
+import forceUrbaniaImage from '../assets/force-urbania.jpg'
+import miniBusImage from '../assets/mini-bus.jpg'
 
 export const brand = {
   name: 'Ambe Cabs',
@@ -137,7 +139,7 @@ export const cabFleet = [
     luggage: 'Group luggage space',
     useCase: 'Tour groups, wedding guests, corporate team movement',
     note: 'A premium shared-mobility van best suited for larger groups that want more comfort than a regular traveller.',
-    image: 'https://www.forcemotors.com/wp-content/uploads/2025/05/urbania-menu-img.png.webp',
+    image: forceUrbaniaImage,
     ctaMessage: "Hello! I'd like to enquire about a Force Urbania in Udaipur.",
   },
   {
@@ -148,7 +150,7 @@ export const cabFleet = [
     luggage: 'Depends on seating layout',
     useCase: 'School trips, group tours, event transfers, staff movement',
     note: 'Suitable for medium-sized groups travelling together within Udaipur or on nearby routes.',
-    image: 'https://www.forcemotors.com/wp-content/uploads/2025/02/Monobus-home-1.png.webp',
+    image: miniBusImage,
     ctaMessage: "Hello! I'd like to enquire about mini buses in Udaipur.",
   },
   {
