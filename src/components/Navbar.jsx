@@ -10,7 +10,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const navLinks = [
-    { label: 'Services', href: '#services' },
+    { label: 'Tour Packages', href: '#tour-packages' },
     { label: 'Our Fleet', href: '#cars' },
     { label: 'About', href: '#about' },
     { label: 'Testimonials', href: '#testimonials' },
@@ -21,7 +21,7 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 30)
-      const sections = ['services', 'cars', 'about', 'testimonials', 'faq', 'contact']
+      const sections = ['tour-packages', 'services', 'cars', 'about', 'testimonials', 'faq', 'contact']
       for (const id of sections) {
         const el = document.getElementById(id)
         if (el) {

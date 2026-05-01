@@ -2,9 +2,11 @@
 // Single source of truth for all website content
 
 import corporateTravelImage from '../assets/corporate-travel.jpeg'
+import eklingjiTempleImage from '../assets/eklingji-temple.png'
 import hawaMahalImage from '../assets/hawa-mahal.jpg'
 import forceUrbaniaImage from '../assets/force-urbania.jpg'
 import miniBusImage from '../assets/mini-bus.jpg'
+import ranakpurTempleImage from '../assets/ranakpur-temple.jpg'
 
 export const brand = {
   name: 'Ambe Cabs',
@@ -177,6 +179,49 @@ export const cabFleet = [
   },
 ]
 
+export const tourPackages = [
+  {
+    id: 1,
+    title: 'Udaipur Local Sightseeing',
+    duration: 'Full Day',
+    route: 'City Palace, Lake Pichola, Fateh Sagar, Sajjangarh, Saheliyon Ki Bari',
+    description: 'A classic City of Lakes tour for families, couples, and first-time visitors who want Udaipur highlights in one comfortable day.',
+    highlights: ['Hotel pickup and drop', 'Flexible stop timing', 'Perfect for same-day sightseeing'],
+    image: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?w=1200&q=80',
+    ctaMessage: "Hello! I'd like details for the Udaipur local sightseeing tour package.",
+  },
+  {
+    id: 2,
+    title: 'Udaipur + Nathdwara + Eklingji',
+    duration: '1 Day',
+    route: 'Udaipur, Eklingji Temple, Nathdwara, Shrinathji Darshan',
+    description: 'A spiritual and heritage circuit covering two of the most popular temple destinations near Udaipur with a relaxed private cab experience.',
+    highlights: ['Ideal for family pilgrims', 'Comfortable darshan travel', 'Easy same-day return'],
+    image: eklingjiTempleImage,
+    ctaMessage: "Hello! I'd like details for the Udaipur, Nathdwara, and Eklingji tour package.",
+  },
+  {
+    id: 3,
+    title: 'Kumbhalgarh + Ranakpur Tour',
+    duration: '1 Day',
+    route: 'Udaipur, Ranakpur Jain Temple, Kumbhalgarh Fort',
+    description: 'Explore Rajasthan’s grand marble architecture and hill fort landscapes on one of the most popular nearby day trips from Udaipur.',
+    highlights: ['Best for history lovers', 'Scenic Aravalli drive', 'Private cab for couples and groups'],
+    image: ranakpurTempleImage,
+    ctaMessage: "Hello! I'd like details for the Kumbhalgarh and Ranakpur tour package from Udaipur.",
+  },
+  {
+    id: 4,
+    title: 'Mount Abu Getaway',
+    duration: '2 Days / 1 Night',
+    route: 'Udaipur, Mount Abu, Nakki Lake, Dilwara Temple, Sunset Point',
+    description: 'A refreshing hill-station package for guests looking to combine cool weather, scenic viewpoints, and a relaxed overnight escape.',
+    highlights: ['Great weekend trip', 'Comfortable outstation ride', 'Custom pickup and return timing'],
+    image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&q=80',
+    ctaMessage: "Hello! I'd like details for the Mount Abu getaway tour package from Udaipur.",
+  },
+]
+
 export const about = {
   headline: 'Born in Udaipur. Driven by Trust.',
   body: "Ambe Cabs was founded with a simple promise - to give every passenger the safety, comfort, and reliability they deserve. Over a decade of serving locals, tourists, and corporate clients across Udaipur and Rajasthan has made us the city's most recommended cab service.",
@@ -275,6 +320,7 @@ export const footer = {
   tagline: 'Apki Manzil, Humara Saath',
   links: [
     { label: 'Services', href: '#services' },
+    { label: 'Tour Packages', href: '#tour-packages' },
     { label: 'Our Fleet', href: '#cars' },
     { label: 'About', href: '#about' },
     { label: 'Testimonials', href: '#testimonials' },
